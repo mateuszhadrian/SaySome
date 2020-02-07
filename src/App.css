@@ -6,12 +6,14 @@ body {
 }
 
 .navbar {
+  position: fixed;
+  width: 100%;
   display: flex;
   justify-content: center;
   margin: 0;
   background: #F7FFF7;
   height: 70px;
-  box-shadow: 10px 10px 14px 1px rgba(00,00,00,0.6);
+  box-shadow: 10px 10px 14px 1px rgba(00,00,00,0.4);
 }
 
 .navbar__container {
@@ -34,4 +36,63 @@ body {
 
 .navbar__button--signup {
   margin-right: 64px;
+}
+
+.main__container {
+  padding-top: 120px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.main__post {
+  display: flex;
+  border-radius: 2px;
+  margin-bottom: 42px;
+  height: 180px;
+  width: 93vw;
+  background: #F7FFF7;
+  box-shadow: 10px 10px 14px 1px rgba(00,00,00,0.2);
+}
+
+.post__content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 0 0 62px;
+}
+
+.post__header {
+  position: relative;
+  right: 32px;
+  bottom: 2px;
+}
+
+.post__when {
+  font-size: 14px;
+  color: rgb(129, 129, 129);
+  position: relative;
+  bottom: 12px;
+  margin:0;
+}
+
+.post__handle {
+  margin: 0;
+  font-size: 52px;
+}
+
+.post__text {
+  height: 30%;
+  font-size: 20px;
+  position: relative;
+  bottom: 4px;
+  justify-self: flex-start;
+  margin: 0;
+}
+
+.post__likes {
+  margin: 0 0 12px 0;
+  position: relative;
+  right: 32px
 }
