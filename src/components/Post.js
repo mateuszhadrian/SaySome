@@ -1,12 +1,18 @@
 import React, { Component } from 'react'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
 import testphoto from '../test/testphoto.jpg'
 
 class Post extends Component {
     render() {
+        dayjs.extend(relativeTime)
+        const { post: { userHandle, createdAt, body, userImage, likeCount } } = this.props
+        console.log(userHandle)
         const profilePhoto = {
-            backgroundImage: `url(${testphoto})`,
+            backgroundImage: `url(${userImage})`,
             height: '100%',
             width: '220px',
+            minWidth: '220px',
             backgroundSize: 'cover',
             backgroundPosition: 'center'
         }
@@ -16,11 +22,11 @@ class Post extends Component {
                     <div style={profilePhoto}></div>
                     <div className='post__content'>
                         <div className='post__header'>
-                            <p className='post__handle'>Mateusz</p>
-                            <span className='post__when'>2 godziny temu</span>  
+                            <p className='post__handle'>{userHandle}</p>
+                            <span className='post__when'>{dayjs(createdAt).fromNow()}</span>  
                         </div>
-                        <p className='post__text'>Testowy post, który jest tu po to, żeby zobaczyć jak będzie rozmieszczony tekst w poście</p> 
-                        <h3 className='post__likes'>10 osób lubi to</h3>
+                        <p className='post__text'>{body}</p> 
+                        <h3 className='post__likes'>{likeCount} osób lubi to</h3>
                     </div>        
                 </div>
         )
