@@ -5,6 +5,11 @@ body {
   background: #0E1C36;
 }
 
+.logo {
+  font-size: 180px;
+}
+
+
 .navbar {
   position: fixed;
   width: 100%;
@@ -29,14 +34,51 @@ body {
 .navbar__brand {
   font-size: 42px;
   margin: 0;
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out;
+}
+
+.navbar__brand:visited {
+  color: black;
+}
+
+.navbar__brand:hover {
+  transform: scale(1.01);
 }
 
 .navbar__buttons-area {
   font-size: 18px;
 }
 
+.navbar__button {
+  text-decoration: none;
+}
+
+.navbar__button:visited {
+  color: black;
+}
+
 .navbar__button--signup {
   margin-right: 64px;
+}
+
+.navbar__profile{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile__picture {
+  background: grey;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.profile__username {
+  min-width: 60px;
+  text-align: center;
 }
 
 .main__container {
@@ -44,6 +86,19 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  animation: appear .6s ease;
+}
+
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    bottom: 64px;
+  }
+  100% {
+    opacity: 1;
+    bottom: 0;
+  }
 }
 
 .main__post {
@@ -90,6 +145,7 @@ body {
   bottom: 4px;
   justify-self: flex-start;
   margin: 0;
+  margin-right: 32px;
 }
 
 .post__likes {
@@ -194,4 +250,16 @@ body {
   border-radius: 2px;
   border: none;
   box-shadow: 6px 6px 10px -3px rgba(00,00,00,0.1);
+}
+
+.form__error-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.form__error {
+  margin:0;
+  position: absolute;
+  color: rgb(116, 20, 20);
 }

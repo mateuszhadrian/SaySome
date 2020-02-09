@@ -12,13 +12,17 @@ class home extends Component {
     render() {
         const { posts, loading } = this.props
         let recentPosts = !loading ? (
-            posts.map(post => <Post key={post.screamId} post={post} />)     
-        ) : <p>loading...</p>
-        return (
-            <div className='main__container'>
-                {recentPosts}
-            </div>           
+            <div className="main__container">
+                {posts.map(post => <Post key={post.screamId} post={post} />)} 
+            </div>              
+        ) : (
+            <div className="login__flex">
+                <div className="login__background">
+                    <span className="logo">SaySome</span>
+                </div>
+            </div>
         )
+        return recentPosts;
     }
 }
 

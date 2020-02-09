@@ -30,16 +30,22 @@ class login extends Component {
 
     
     render() {
+    const errorMessage = this.props.UI.errors && (
+            <div className="form__error-container">
+                <p className="form__error">{this.props.UI.errors.general}</p>
+            </div> 
+    )
         return (
             <div className="login__flex">
                 <div className="login__background">
                     <div className="login__form-container">
                         <span className="login__title">Zaloguj się</span>
-                        <form onSubmit={this.handleSubmit} className='login__form'>
+                        <form noValidate onSubmit={this.handleSubmit} className='login__form'>
                             <label htmlFor="email">Email</label>
                             <input onChange={this.handleChange} className="form__input form__input--email" type="email" name="email" id="email"/>
                             <label htmlFor="password">Hasło</label>
                             <input onChange={this.handleChange} className="form__input form__input--password" type="password" name="password" id="password"/>
+                            {errorMessage}
                             <button className="form__button">Zaloguj</button>
                         </form>
                     </div>

@@ -6,7 +6,6 @@ class Post extends Component {
     render() {
         dayjs.extend(relativeTime)
         const { post: { userHandle, createdAt, body, userImage, likeCount } } = this.props
-        console.log(userHandle)
         const profilePhoto = {
             backgroundImage: `url(${userImage})`,
             height: '100%',
