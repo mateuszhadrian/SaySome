@@ -9,6 +9,7 @@ import { logoutUser, getUserData } from './redux/actions/userActions'
 import home from './pages/home'
 import login from './pages/login'
 import signup from './pages/signup'
+import profile from './pages/profile'
 
 import './Normalize.css'
 import './App.css';
@@ -41,6 +42,7 @@ function App() {
           <Route exact path="/" component={home}/>
           <AuthRoute exact path="/logowanie" component={login}/>
           <AuthRoute exact path="/rejestracja" component={signup}/>
+          <Route exact path="/profil" component={profile}/>
         </Switch>
     </Router>
     </Provider>

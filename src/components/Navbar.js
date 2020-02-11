@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { logoutUser, getUserData } from '../redux/actions/userActions'
+import { logoutUser } from '../redux/actions/userActions'
 
 class Navbar extends Component {
     state = {
@@ -15,6 +15,12 @@ showOptions = () => {
 
 logout = () => {
     this.props.logoutUser()
+    this.setState({
+        show: false
+    })
+}
+
+hideOptions = () => {
     this.setState({
         show: false
     })
@@ -39,7 +45,7 @@ logout = () => {
             <div className="options__container">
                 <div className="options">
                     <ul className="options__items">
-                        <li className="options__item"><button className="options__button">PROFIL</button></li>
+                        <li className="options__item"><Link to="/profil" onClick={this.hideOptions}><button className="options__button">PROFIL</button></Link></li>
                         <li className="options__item"><button onClick={this.logout} className="options__button"><span className="logout">WYLOGUJ</span></button></li>
                     </ul>
                 </div>

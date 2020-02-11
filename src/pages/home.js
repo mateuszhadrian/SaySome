@@ -16,9 +16,9 @@ class home extends Component {
                 {posts.map(post => <Post key={post.screamId} post={post} />)} 
             </div>              
         ) : (
-            <div className="login__flex">
-                <div className="login__background">
-                    <span className="logo">SaySome</span>
+            <div className="saysome__flex">
+                <div className="saysome__background">
+                    <span className="saysome__logo">SaySome</span>
                 </div>
             </div>
         )
