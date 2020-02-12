@@ -54,12 +54,18 @@ hideOptions = () => {
 
         const navbarRight = !loading ? (
             authenticated ? (
+                <>
+                <button onClick={this.props.showAddPostWindow} className="navbar__add-post">
+                    <span className="add-post add-post__text">powiedz coś</span>
+                    <span className="add-post add-post__plus">+</span>
+                </button>
                 <button onClick={this.showOptions} className="profile__button">
                     <div className="navbar__profile">
                         <div className="profile__picture" style={loggedUserPhoto}></div>
                         <span className="profile__username">{handle}</span>
                 </div>
                 </button>
+                </>
             ) : (
                 <div className="navbar__buttons-area">
                         <Link className="navbar__button navbar__button--signup" to="/rejestracja"><span >rejestracja</span></Link> 
@@ -67,7 +73,7 @@ hideOptions = () => {
                 </div>
             )
         ) : (
-            <div></div>
+            null
         )
         return (
             <div className='navbar'>
