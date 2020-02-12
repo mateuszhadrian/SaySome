@@ -47,11 +47,11 @@ class EditProfile extends Component {
                     <div className="edit__form__wrapper">
                         <span className="edit__header">Edytuj dane</span>
                         <form className="edit__form">
-                            <label htmlFor="bio">Opis</label>
+                            <label className="edit__label" htmlFor="bio">Opis</label>
                             <input onChange={this.handleChange} value={this.state.bio} className="edit__form-input" type="text" id="bio" name="bio"/>
-                            <label htmlFor="location">Lokalizacja</label>
+                            <label className="edit__label" htmlFor="location">Lokalizacja</label>
                             <input onChange={this.handleChange} value={this.state.location} className="edit__form-input" type="text" id="location" name="location"/>
-                            <label htmlFor="website">Strona internetowa</label>
+                            <label className="edit__label" htmlFor="website">Strona internetowa</label>
                             <input onChange={this.handleChange} value={this.state.website} className="edit__form-input" type="text" id="website" name="website"/>
                             <div className="edit__buttons-container">
                                 <button onClick={this.handleSubmit} className="edit__form-button">Zapisz</button>

@@ -37,17 +37,17 @@ class profile extends Component {
     }
 
     render() {
-        const { user: { authenticated, loading, credentials: { handle, imageUrl, bio, website, location, createdAt, email } }} = this.props
+        const { user: { authenticated, credentials: { handle, imageUrl, bio, website, location, createdAt, email } }} = this.props
 
         const profilePhoto = {
             display: 'flex',
             justifyContent: 'flex-end',
             alignItems: 'flex-end',
-            margin: '12px',
+            margin: '12px 0 48px 0',
             backgroundImage: `url(${imageUrl})`,
-            height: '150px',
-            width: '180px',
-            borderRadius: '60px',
+            height: '260px',
+            width: '300px',
+            borderRadius: '2px',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             boxShadow: '10px 10px 14px 1px rgba(00,00,00,0.1)'
@@ -72,7 +72,7 @@ class profile extends Component {
                 <hr/>
                 <div className="profile-page__additional-data">
                     {location && <span className="profile-page__location"><i className="fas icon fa-map-marker-alt"></i>{location}</span>}
-                    {website && <span className="profile-page__website"><a className="profile-page__website-link" target="_blank" href={website}><i className="fas icon fa-globe-europe"></i>{website}</a></span>}
+                    {website && <span className="profile-page__website"><a className="profile-page__website-link" target="_blank" rel="noopener noreferrer" href={website}><i className="fas icon fa-globe-europe"></i>{website}</a></span>}
                 </div>
                     <span className="profile-page__createdAt">konto od: {dayjs(createdAt).format('MMM YYYY')}</span>
                 

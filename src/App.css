@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Caveat&display=swap');
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Caveat', cursive;
   background: #0E1C36;
@@ -48,6 +52,7 @@ body {
 
 .navbar__button {
   text-decoration: none;
+  color: black;
 }
 
 .navbar__button:visited {
@@ -181,28 +186,29 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 74vh;
 }
 
 .profile-page__background {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 1px;
+  border-radius: 4px;
   height: 100%;
-  width: 50%;
+  padding: 42px 80px 12px 80px;
   background: #F7FFF7;
   box-shadow: 10px 10px 14px 1px rgba(0, 0, 0, 0.753);
 }
 
 .profile-page__body {
   position: relative;
+  height: 100%;
 }
 
 .edit__container {
   background: rgba(14, 28, 54, 0.897);
-  position: absolute;
-  height: 100vh;
+  position: fixed;
+  z-index: 10;
+  height: 100%;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -224,8 +230,10 @@ body {
 }
 
 .edit__header {
+  color: #0E1C36;
+  text-shadow: 5px 5px 9px rgba(00,00,00,0.3);
   font-size: 32px;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
 }
 
 .edit__form__wrapper {
@@ -238,11 +246,19 @@ body {
   width: 300px;
 }
 
+.edit__label {
+  color: #0E1C36;
+  position: relative;
+  top: 4px;
+  right: 6px;
+}
+
 .edit__form-input {
+  font-size: 18px;
   border: none;
   border-radius: 2px;
   margin-bottom: 12px;
-  padding: 8px 12px;
+  padding: 8px 14px;
   box-shadow: 10px 10px 14px 1px rgba(00,00,00,0.04);
 }
 
@@ -260,7 +276,7 @@ body {
   font-size: 18px;
   letter-spacing: 2px;
   padding: 4px 12px;
-  box-shadow: 10px 10px 14px 1px rgba(00,00,00,0.04);
+  box-shadow: 10px 10px 14px 1px rgba(00,00,00,0.2);
 }
 
 .profile-page__image-button {
@@ -279,6 +295,7 @@ body {
 
 .profile-page__not-logged-in {
   font-size: 90px;
+  margin: 80px 0 140px 0;
 }
 
 .profile-page__handle-container {
@@ -296,6 +313,7 @@ body {
   outline: none;
   background: #0E1C36;
   font-size: 14px;
+  margin-bottom: 32px;
   padding: 6px 10px 6px 9px;
   border: none;
   border-radius: 4px;

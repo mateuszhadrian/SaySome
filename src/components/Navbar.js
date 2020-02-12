@@ -63,7 +63,7 @@ hideOptions = () => {
             ) : (
                 <div className="navbar__buttons-area">
                         <Link className="navbar__button navbar__button--signup" to="/rejestracja"><span >rejestracja</span></Link> 
-                        <Link className="navbar__button navbar__button--login" to="/logowanie"><span >logowanie</span></Link> 
+                        <Link className="navbar__button navbar__button--login" to="/logowanie"><span>logowanie</span></Link> 
                 </div>
             )
         ) : (
