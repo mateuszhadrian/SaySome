@@ -16,7 +16,7 @@ class AddPostWindow extends Component {
                         <textarea className="add-post-window__textarea"></textarea>
                         <div className="add-post-window__buttons">
                             <button className="add-post-window__button">powiedz to!</button>
-                            <button onClick={this.props.hideAddPostWindow} className="add-post-window__button">anuluj</button>
+                            <button onClick={this.props.hideAddPostWindow} className="add-post-window__button">nie mów...</button>
                         </div>
                     </div>
                 </div>

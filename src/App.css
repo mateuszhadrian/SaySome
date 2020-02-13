@@ -91,9 +91,9 @@ body {
   width: 40%;
   min-width: 400px;
   min-height: 200px;
-  background: #F7FFF7;
+  background-image: linear-gradient(to right top, #c0c0c0, #cccccc, #d7d7d7, #e3e3e3, #efefef, #efefef, #efefef, #efefef, #e3e3e3, #d7d7d7, #cccccc, #c0c0c0);
   border-radius: 2px;
-  padding: 8px 24px 24px 8px;
+  padding: 12px 28px 28px 12px;
   box-shadow: 10px 10px 14px 1px rgba(00,00,00,0.6);
 }
 
@@ -153,6 +153,7 @@ body {
 }
 
 .add-post-window__textarea {
+  border-radius: 6px;
   resize: none;
   outline: none;
   font-size: 24px;
@@ -313,7 +314,7 @@ body {
   align-items: center;
   border-radius: 2px;
   z-index: 100;
-  background: #F7FFF7;
+  background-image: linear-gradient(to right top, #c0c0c0, #cccccc, #d7d7d7, #e3e3e3, #efefef, #efefef, #efefef, #efefef, #e3e3e3, #d7d7d7, #cccccc, #c0c0c0);
   height: 60vh;
   width: 40vw;
   box-shadow: 10px 10px 14px 1px rgba(00,00,00,0.6);
@@ -370,10 +371,11 @@ body {
 }
 
 .profile-page__image-button {
-  font-size: 12px;
+  padding: 8px 12px;
+  font-size: 14px;
   border-radius: 2px;
   border: 1px solid silver;
-  background: rgb(244, 248, 255);
+  background-image: linear-gradient(to right top, #c0c0c0, #cccccc, #d7d7d7, #e3e3e3, #efefef, #efefef, #efefef, #efefef, #e3e3e3, #d7d7d7, #cccccc, #c0c0c0);
   outline: none;
   transition: all 0.05s ease-in;
   position: relative;
@@ -386,6 +388,7 @@ body {
 .profile-page__not-logged-in {
   font-size: 90px;
   margin: 80px 0 140px 0;
+  text-shadow: 5px 5px 5px rgba(00,00,00,0.3);
 }
 
 .navbar__add-post {
