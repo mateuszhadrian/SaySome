@@ -264,12 +264,13 @@ body {
   border-radius: 1px;
   height: 100%;
   width: 100%;
-  background: #F7FFF7;
+  background-image: linear-gradient(to right top, #c0c0c0, #cccccc, #d7d7d7, #e3e3e3, #efefef, #efefef, #efefef, #efefef, #e3e3e3, #d7d7d7, #cccccc, #c0c0c0);
   box-shadow: 10px 10px 14px 1px rgba(00,00,00,0.6);
 }
 
 .saysome__logo {
   font-size: 180px;
+  text-shadow: 5px 5px 9px rgba(00,00,00,0.3);
 }
 
 .profile-page__flex {
@@ -388,7 +389,7 @@ body {
 .profile-page__not-logged-in {
   font-size: 90px;
   margin: 80px 0 140px 0;
-  text-shadow: 5px 5px 5px rgba(00,00,00,0.3);
+  text-shadow: 5px 5px 5px rgba(00,00,00,0.3);;
 }
 
 .navbar__add-post {
