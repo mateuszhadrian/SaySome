@@ -2,18 +2,56 @@ import React, { Component } from 'react'
 import Post from '../components/Post'
 import { getPosts } from '../redux/actions/dataActions'
 import { connect } from 'react-redux'
+import { deletePost } from '../redux/actions/dataActions'
 
 class home extends Component {
+    state = {
+        show: false,
+        screamId: null,
+    }
+
+    handleDelete = () => {
+        this.props.deletePost(this.state.screamId);
+        this.hideQuestion();
+    }
 
     componentDidMount = () => {
         this.props.getPosts();
     }
 
+    showQuestion = (screamId) => {
+        this.setState({
+            show: true,
+            screamId,
+        })
+    }
+
+    hideQuestion = () => {
+        this.setState({
+            show: false,
+            screamId: null,
+        })
+    }
+
     render() {
         const { posts, loading } = this.props
+
+        const deleteQuestion = this.state.show ? (
+            <div className="question__container">
+                <div className="question__wrapper">
+                    <span className="question__text">Na pewno ??</span>
+                    <div className="question__buttons">
+                        <button onClick={this.handleDelete} className="question__button question__button--delete">Usuń wypowiedź</button>
+                        <button onClick={this.hideQuestion} className="question__button question__button--cancel">Anuluj</button>
+                    </div>
+                </div>
+            </div>
+        ) : (null)
+
         let recentPosts = !loading ? (
             <div className="main__container">
-                {posts.map(post => <Post key={post.screamId} post={post} />)} 
+                {deleteQuestion}
+                {posts.map(post => <Post key={post.screamId} screamId={post.screamId} showQuestion={this.showQuestion} post={post} />)} 
             </div>              
         ) : (
             <div className="saysome__flex">
@@ -32,7 +70,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapActionsToProps = {
-    getPosts
+    getPosts,
+    deletePost,
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(home)

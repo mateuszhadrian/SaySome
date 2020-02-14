@@ -4,6 +4,8 @@ import { getUserData, uploadImage } from '../redux/actions/userActions'
 import dayjs from 'dayjs'
 import EditProfile from '../components/EditProfile'
 
+import { CircularProgress } from '@material-ui/core'
+
 class profile extends Component {
     state = {
         show: false
@@ -37,7 +39,7 @@ class profile extends Component {
     }
 
     render() {
-        const { user: { authenticated, credentials: { handle, imageUrl, bio, website, location, createdAt, email } }} = this.props
+        const { user: { loading, authenticated, credentials: { handle, imageUrl, bio, website, location, createdAt, email } }} = this.props
 
         const profilePhoto = {
             display: 'flex',
@@ -53,6 +55,8 @@ class profile extends Component {
             boxShadow: '10px 10px 14px 1px rgba(00,00,00,0.1)'
         }
 
+        const progressCircleImage = loading ? <div className="progress__flex"><CircularProgress color="#0E1C36"/></div> : ( null )
+
         const editProfileCard = this.state.show ? (
             <EditProfile hideEditProfile={this.hideEditProfile}/>
         ) : (null)
@@ -60,6 +64,7 @@ class profile extends Component {
         const profileContent = authenticated ? (
             <div className="profile-page__container">
                 <div className="profile-page__image" style={profilePhoto}>
+                    {progressCircleImage}
                 <input type="file" id="imageInput" hidden="hidden" onChange={this.handleImageChange}/>
                 <button onClick={this.handleUploadImage} className="profile-page__image-button"><i className="fas fa-user-edit"></i></button>
                 </div>

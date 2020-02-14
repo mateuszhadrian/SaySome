@@ -2,18 +2,16 @@ import React, { Component } from 'react'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import { connect } from 'react-redux'
-import { deletePost } from '../redux/actions/dataActions'
+
 
 class Post extends Component {
 
-
-    handleDelete = () => {
-        this.props.deletePost(this.props.post.screamId)
-    }
+    
+    
 
     render() {
         dayjs.extend(relativeTime)
-        const { user: { credentials: { handle }}, post: { userHandle, createdAt, body, userImage, likeCount } } = this.props
+        const { user: { authenticated, credentials: { handle }}, post: { userHandle, createdAt, body, userImage, likeCount } } = this.props
         const profilePhoto = {
             backgroundImage: `url(${userImage})`,
             height: '100%',
@@ -23,7 +21,7 @@ class Post extends Component {
             backgroundPosition: 'center'
         }
 
-        const deleteButton = handle=== userHandle ? (<button onClick={this.handleDelete} className="post__delete-button"><i className="fas fa-trash"></i></button>) : ( null )
+        const deleteButton = handle === userHandle && authenticated ? (<button onClick={() => this.props.showQuestion(this.props.screamId)} className="post__delete-button"><i className="fas fa-trash"></i></button>) : ( null )
 
         return (
             <div className='main__post'>
@@ -48,8 +46,6 @@ const mapStateToProps = (state) => ({
     user: state.user
 })
 
-const mapActionsToProps = {
-    deletePost
-}
+const mapActionsToProps = {}
 
 export default connect(mapStateToProps, mapActionsToProps)(Post)

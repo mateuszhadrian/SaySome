@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logoutUser } from '../redux/actions/userActions'
+import { CircularProgress } from '@material-ui/core'
 
 class Navbar extends Component {
     state = {
         show: false
     }
+
 showOptions = () => {
     return this.setState({
         show: !this.state.show
@@ -41,6 +43,7 @@ hideOptions = () => {
             backgroundPosition: 'center'
         }
 
+
         const optionsDropdown = this.state.show && (
             <div className="options__container">
                 <div className="options">
@@ -73,7 +76,7 @@ hideOptions = () => {
                 </div>
             )
         ) : (
-            null
+            <CircularProgress color="#0E1C36" className="photo__loading"/>
         )
         return (
             <div className='navbar'>

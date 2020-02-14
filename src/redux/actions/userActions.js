@@ -36,7 +36,7 @@ export const signupUser  = (newUserLoginCredentials) => (dispatch) => {
 }
 
 export const uploadImage = (formData) => (dispatch) => {
-    dispatch({ type:LOADING_USER });
+    dispatch({ type: LOADING_USER });
     axios.post('/user/image', formData)
     .then(res => {
         dispatch(getUserData())

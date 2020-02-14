@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { loginUser } from '../redux/actions/userActions'
+import { CircularProgress } from '@material-ui/core';
 
 class login extends Component {
     state = {
@@ -30,11 +31,14 @@ class login extends Component {
 
     
     render() {
+        const { UI: { loading }} = this.props
     const errorMessage = this.props.UI.errors && (
             <div className="form__error-container">
                 <p className="form__error">{this.props.UI.errors.general}</p>
             </div> 
     )
+
+    const loginProgress = loading ? <div className="button__progress"><CircularProgress color="white"/></div> : ( 'Zaloguj' )
         return (
             <div className="login__flex">
                 <div className="login__background">
@@ -46,7 +50,9 @@ class login extends Component {
                             <label htmlFor="password">Hasło</label>
                             <input onChange={this.handleChange} className="form__input form__input--password" type="password" name="password" id="password"/>
                             {errorMessage}
-                            <button className="form__button">Zaloguj</button>
+                            <button className="form__button">
+                                {loginProgress}
+                                </button>
                         </form>
                     </div>
                 </div>
