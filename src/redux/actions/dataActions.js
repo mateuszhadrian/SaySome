@@ -1,4 +1,4 @@
-import { SET_POSTS, LOADING_DATA, LOADING_UI, ADD_POST, DELETE_POST} from '../types'
+import { SET_POSTS, LOADING_DATA, LOADING_UI, ADD_POST, DELETE_POST, SHOW_BUTTON, HIDE_BUTTON } from '../types'
 import axios from 'axios';
 
 export const getPosts = () => (dispatch) => {
@@ -43,4 +43,12 @@ export const deletePost = (screamId) => (dispatch) => {
     .catch(err => {
         console.log(err.code)
     })
+}
+
+export const hideAddPostButton = () => (dispatch) => {
+    dispatch({ type: HIDE_BUTTON })
+}
+
+export const showAddPostButton = () => (dispatch) => {
+    dispatch({ type: SHOW_BUTTON })
 }

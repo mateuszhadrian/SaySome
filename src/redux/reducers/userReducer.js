@@ -3,7 +3,8 @@ import { LOADING_USER, SET_USER, SET_UNAUTHENTICATED, SET_AUTHENTICATED } from '
 const initialState = {
     loading: false,
     authenticated: false,
-    credentials: {}
+    credentials: {},
+    errors: {}
 }
 
 export default function(state = initialState, action){

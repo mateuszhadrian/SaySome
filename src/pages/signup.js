@@ -29,6 +29,7 @@ class signup extends Component {
         }
 
         this.props.signupUser(newUserLoginCredentials)
+        
     }
 
 
@@ -37,7 +38,27 @@ class signup extends Component {
 
         const { UI: { loading }} = this.props
         const signupProgress = loading ? <div className="button__progress"><CircularProgress color="white"/></div> : ( 'Zarejestruj' )
-
+        
+        const errorMessage = this.props.UI.errors && this.props.UI.errors.confirmPassword ? (
+            <div className="form__error-container">
+                <p className="form__error">{this.props.UI.errors.confirmPassword}</p>
+            </div> 
+    ) : ( this.props.UI.errors && this.props.UI.errors.handle ? (
+        <div className="form__error-container">
+                <p className="form__error">{this.props.UI.errors.handle}</p>
+            </div>
+    ) : ( this.props.UI.errors && this.props.UI.errors.email ? (
+        <div className="form__error-container">
+                    <p className="form__error">{this.props.UI.errors.email}</p>
+                </div>
+    ) : (
+        this.state.password.length !== 0 && this.state.password.length < 6 && <div className="form__error-container">
+                    <p className="form__error">Hasło musi mieć conajmniej 6 znaków</p>
+                </div>
+    )
+            
+    ) )
+        
         return (
             <div className="signup__flex">
                 <div className="signup__background">
@@ -59,7 +80,7 @@ class signup extends Component {
                             
                                 <label htmlFor="confirmPassword">Potwierdź hasło</label>
                                 <input onChange={this.handleChange} className="signup-form__input signup-form__input--confirm-password" type="password" name="confirmPassword" id="confirmPassword"/>
-        
+                                {errorMessage}
                                             
                             <button className="form__button">{signupProgress}</button>
                         </form>

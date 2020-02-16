@@ -6,7 +6,10 @@ import { connect } from 'react-redux'
 
 class Post extends Component {
 
-    
+    openDeletionWindow = (event) => {
+        event.stopPropagation();
+        this.props.showQuestion(this.props.screamId);
+    }
     
 
     render() {
@@ -21,7 +24,7 @@ class Post extends Component {
             backgroundPosition: 'center'
         }
 
-        const deleteButton = handle === userHandle && authenticated ? (<button onClick={() => this.props.showQuestion(this.props.screamId)} className="post__delete-button"><i className="fas fa-trash"></i></button>) : ( null )
+        const deleteButton = handle === userHandle && authenticated ? (<button onClick={this.openDeletionWindow} className="post__delete-button"><i className="fas fa-trash"></i></button>) : ( null )
 
         return (
             <div className='main__post'>

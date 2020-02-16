@@ -57,17 +57,18 @@ class App extends Component {
     ) : (
       null
     )
+
     
     return (
       <>
       <Provider store={store}>
       <Router>
-        <Navbar showAddPostWindow={this.showAddPostWindow}/>
+      <Navbar showAddPostWindow={this.showAddPostWindow}/>
         {addPostWindow}
           <Switch>
             <Route exact path="/" component={home}/>
             <AuthRoute exact path="/logowanie" component={login}/>
-            <AuthRoute exact path="/rejestracja" component={signup}/>
+            <AuthRoute exact path="/rejestracja" component={signup}/> 
             <Route exact path="/profil" component={profile}/>
           </Switch>
       </Router>

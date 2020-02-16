@@ -33,19 +33,26 @@ class AddPostWindow extends Component {
 
     }
 
+    
+    
+
     render() {
+
+        const tooLong = this.state.body.length > 130 && this.state.body.length < 150 && `Maksymalna długość - 150 znaków (${150 - this.state.body.length})` 
+
+        const exceeded = this.state.body.length === 150 && 'Za długa wypowiedź. Streść to jakoś.'
         return (
-            <div className="add-post-window__container">
-                <div className="add-post-window__flex">
+            <div onClick={this.props.hideAddPostWindow} className="add-post-window__container">
+                <div onClick={(e) => e.stopPropagation()} className="add-post-window__flex">
                     <div className="add-post-window__header">
                         <div className="saysymbol">
                             <span className="saysymbol__text">powiedz coś</span>
                             <span className="saysymbol__plus">+</span>
                         </div>
                     </div>
-                    <span className="add-post-window__errors">{this.state.errors}</span>
+                    <span className="add-post-window__errors">{tooLong}{this.state.errors}{exceeded}</span>
                     <div className="add-post-window__form-container">
-                        <textarea onChange={this.handleChange} name="body" className="add-post-window__textarea"></textarea>
+                        <textarea maxLength={150} onChange={this.handleChange} name="body" className="add-post-window__textarea"></textarea>
                         <div className="add-post-window__buttons">
                             <button onClick={this.handleAddPost} className="add-post-window__button">powiedz to!</button>
                             <button onClick={this.props.hideAddPostWindow} className="add-post-window__button">nie mów...</button>

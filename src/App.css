@@ -100,7 +100,7 @@ body {
 .add-post-window__errors {
   color: rgb(124, 20, 20);
   position: relative;
-  top: 2px;
+  bottom: 2px;
   width: 70%;
   text-align: center;
 }
@@ -322,7 +322,7 @@ transform: scale(1.1);
   font-size: 14px;
   color: rgb(129, 129, 129);
   position: relative;
-  bottom: 6px;
+  bottom: 14px;
   margin:0;
 }
 
@@ -335,7 +335,7 @@ transform: scale(1.1);
   height: 30%;
   font-size: 20px;
   position: relative;
-  bottom: 4px;
+  bottom: 24px;
   justify-self: flex-start;
   margin: 0;
   margin-right: 32px;
@@ -710,6 +710,8 @@ hr {
   bottom: 20px;
 }
 
+
+
 .signup__title {
   font-size: 86px;
 }
@@ -724,6 +726,10 @@ hr {
   border-radius: 2px;
   border: none;
   box-shadow: 6px 6px 10px -3px rgba(00,00,00,0.1);
+}
+
+.signup-form__input--confirm-password {
+  margin-bottom: 12px;
 }
 
 .form__error-container {

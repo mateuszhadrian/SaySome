@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Post from '../components/Post'
 import { getPosts } from '../redux/actions/dataActions'
 import { connect } from 'react-redux'
-import { deletePost } from '../redux/actions/dataActions'
+import { deletePost, hideAddPostButton, showAddPostButton } from '../redux/actions/dataActions'
 
 class home extends Component {
     state = {
@@ -20,6 +20,7 @@ class home extends Component {
     }
 
     showQuestion = (screamId) => {
+        this.props.hideAddPostButton()
         this.setState({
             show: true,
             screamId,
@@ -27,6 +28,7 @@ class home extends Component {
     }
 
     hideQuestion = () => {
+        this.props.showAddPostButton()
         this.setState({
             show: false,
             screamId: null,
@@ -38,7 +40,7 @@ class home extends Component {
 
         const deleteQuestion = this.state.show ? (
             <div className="question__container">
-                <div className="question__wrapper">
+                <div onClick={(e) => e.stopPropagation()} className="question__wrapper">
                     <span className="question__text">Na pewno ??</span>
                     <div className="question__buttons">
                         <button onClick={this.handleDelete} className="question__button question__button--delete">Usuń wypowiedź</button>
@@ -49,7 +51,7 @@ class home extends Component {
         ) : (null)
 
         let recentPosts = !loading ? (
-            <div className="main__container">
+            <div onClick={this.hideQuestion} className="main__container">
                 {deleteQuestion}
                 {posts.map(post => <Post key={post.screamId} screamId={post.screamId} showQuestion={this.showQuestion} post={post} />)} 
             </div>              
@@ -72,6 +74,8 @@ const mapStateToProps = (state) => ({
 const mapActionsToProps = {
     getPosts,
     deletePost,
+    hideAddPostButton,
+    showAddPostButton
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(home)

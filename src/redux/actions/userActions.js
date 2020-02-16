@@ -80,3 +80,7 @@ export const getUserData = () => (dispatch) => {
         console.log(err.response)
     })
 }
+
+export const clearErrors = () => (dispatch) => {
+    dispatch({ type: CLEAR_ERRORS })
+}

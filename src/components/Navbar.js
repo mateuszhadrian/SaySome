@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { logoutUser } from '../redux/actions/userActions'
+import { logoutUser, clearErrors } from '../redux/actions/userActions'
 import { CircularProgress } from '@material-ui/core'
 
 class Navbar extends Component {
@@ -9,8 +9,9 @@ class Navbar extends Component {
         show: false
     }
 
-showOptions = () => {
-    return this.setState({
+toggleOptions = (e) => {
+    e.stopPropagation();
+    this.setState({
         show: !this.state.show
     })
 }
@@ -26,6 +27,10 @@ hideOptions = () => {
     this.setState({
         show: false
     })
+}
+
+clearErrors = () => {
+    this.props.clearErrors()
 }
 
     render() {
@@ -58,11 +63,11 @@ hideOptions = () => {
         const navbarRight = !loading ? (
             authenticated ? (
                 <>
-                <button onClick={this.props.showAddPostWindow} className="navbar__add-post">
+                {this.props.data.button&&<button onClick={this.props.showAddPostWindow} className="navbar__add-post">
                     <span className="add-post add-post__text">powiedz coś</span>
                     <span className="add-post add-post__plus">+</span>
-                </button>
-                <button onClick={this.showOptions} className="profile__button">
+                </button>}
+                <button onClick={this.toggleOptions} className="profile__button">
                     <div className="navbar__profile">
                         <div className="profile__picture" style={loggedUserPhoto}></div>
                         <span className="profile__username">{handle}</span>
@@ -71,15 +76,15 @@ hideOptions = () => {
                 </>
             ) : (
                 <div className="navbar__buttons-area">
-                        <Link className="navbar__button navbar__button--signup" to="/rejestracja"><span >rejestracja</span></Link> 
-                        <Link className="navbar__button navbar__button--login" to="/logowanie"><span>logowanie</span></Link> 
+                        <Link className="navbar__button navbar__button--signup" to="/rejestracja"><span onClick={this.clearErrors}>rejestracja</span></Link> 
+                        <Link className="navbar__button navbar__button--login" to="/logowanie"><span onClick={this.clearErrors}>logowanie</span></Link> 
                 </div>
             )
         ) : (
             <CircularProgress color="#0E1C36" className="photo__loading"/>
         )
         return (
-            <div className='navbar'>
+            <div onClick={this.hideOptions} className='navbar'>
                 <div className="profile__options-container">
                     <div className='navbar__container'>
                         <Link className='navbar__brand' to="/"><span >SaySome</span></Link>
@@ -93,11 +98,13 @@ hideOptions = () => {
 }
 
 const mapStateToProps = (state) => ({
-    user: state.user
+    user: state.user,
+    data: state.data
 })
 
 const mapActionsToProps = {
-    logoutUser
+    logoutUser,
+    clearErrors
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(Navbar)

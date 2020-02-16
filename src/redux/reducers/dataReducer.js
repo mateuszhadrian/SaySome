@@ -1,9 +1,11 @@
-import { SET_POSTS, LOADING_DATA, ADD_POST, DELETE_POST } from '../types';
+import { SET_POSTS, LOADING_DATA, ADD_POST, DELETE_POST, HIDE_BUTTON, SHOW_BUTTON } from '../types';
 
 const initialState = {
     posts: [],
     post: {},
-    loading: false
+    loading: false,
+    button: true,
+    options: true
 }
 
 export default function(state = initialState, action){
@@ -32,6 +34,16 @@ export default function(state = initialState, action){
             return {
                 ...state,
                 posts 
+            }
+        case HIDE_BUTTON:
+            return {
+                ...state,
+                button: false
+            }
+        case SHOW_BUTTON:
+            return {
+                ...state,
+                button: true
             }
         default:
             return state;

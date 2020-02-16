@@ -42,8 +42,8 @@ class EditProfile extends Component {
 
     render() {
         return (
-            <div className="edit__container">
-                <div className="edit__card">
+            <div onClick={this.props.hideEditProfile} className="edit__container">
+                <div onClick={(e)=> e.stopPropagation()} className="edit__card">
                     <div className="edit__form__wrapper">
                         <span className="edit__header">Edytuj dane</span>
                         <form className="edit__form">
