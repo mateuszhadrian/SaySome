@@ -12,8 +12,8 @@ import login from './pages/login'
 import signup from './pages/signup'
 import profile from './pages/profile'
 
-import './Normalize.css'
-import './App.css';
+import './Normalize.scss'
+import './App.scss';
 import Navbar from './components/Navbar'
 import store from './redux/store';
 import { SET_AUTHENTICATED } from './redux/types';
