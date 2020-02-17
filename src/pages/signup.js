@@ -64,7 +64,7 @@ class signup extends Component {
                 <div className="signup__background">
                     <div className="signup__form-container">
                         <span className="signup__title">Zarejestruj się</span>
-                        <form onSubmit={this.handleSubmit} className='signup__form'>
+                        <form autoComplete='off' onSubmit={this.handleSubmit} className='signup__form'>
 
                         <label htmlFor="handle">Nazwa użytkownika</label>
                                 <input onChange={this.handleChange} className="signup-form__input signup-form__input--handle" type="text" name="handle" id="handle"/>

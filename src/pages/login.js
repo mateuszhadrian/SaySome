@@ -44,7 +44,7 @@ class login extends Component {
                 <div className="login__background">
                     <div className="login__form-container">
                         <span className="login__title">Zaloguj się</span>
-                        <form noValidate onSubmit={this.handleSubmit} className='login__form'>
+                        <form autoComplete='off' noValidate onSubmit={this.handleSubmit} className='login__form'>
                             <label htmlFor="email">Email</label>
                             <input onChange={this.handleChange} className="form__input form__input--email" type="email" name="email" id="email"/>
                             <label htmlFor="password">Hasło</label>

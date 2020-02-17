@@ -46,7 +46,7 @@ class EditProfile extends Component {
                 <div onClick={(e)=> e.stopPropagation()} className="edit__card">
                     <div className="edit__form__wrapper">
                         <span className="edit__header">Edytuj dane</span>
-                        <form className="edit__form">
+                        <form autoComplete='off' className="edit__form">
                             <label className="edit__label" htmlFor="bio">Opis</label>
                             <input onChange={this.handleChange} value={this.state.bio} className="edit__form-input" type="text" id="bio" name="bio"/>
                             <label className="edit__label" htmlFor="location">Lokalizacja</label>
