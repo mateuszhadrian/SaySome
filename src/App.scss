@@ -14,6 +14,11 @@ hr {
   width: 100%;
 }
 
+input {
+  font-size: 14px;
+  font-family: sans-serif;
+}
+
 .icon {
   padding-right: 8px;
 }
@@ -603,7 +608,6 @@ hr {
     }
 
     &__form-input {
-      font-size: 18px;
       border: none;
       border-radius: 2px;
       margin-bottom: 12px;
@@ -694,7 +698,7 @@ hr {
       border: none;
       border-radius: 2px;
       margin-bottom: 6px;
-      padding: 8px 12px;
+      padding: 12px 10px;
       box-shadow: 10px 10px 14px 1px rgba(00,00,00,0.1);
     }
 
@@ -763,6 +767,7 @@ hr {
 
 .signup-form{
     &__input {
+      padding: 12px 10px;
       border-radius: 2px;
       border: none;
       box-shadow: 6px 6px 10px -3px rgba(00,00,00,0.1);

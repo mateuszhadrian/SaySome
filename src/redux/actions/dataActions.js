@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const getPosts = () => (dispatch) => {
     dispatch({ type: LOADING_DATA });
-    axios.get('/screams')
+    axios.get('https://us-central1-mysocial-c77b8.cloudfunctions.net/api/screams')
     .then(res =>{
     dispatch({ 
         type: SET_POSTS,
@@ -20,7 +20,7 @@ export const getPosts = () => (dispatch) => {
 
 export const addPost = (postContent) => (dispatch) => {
     dispatch({ type: LOADING_UI });
-    axios.post('/scream', postContent)
+    axios.post('https://us-central1-mysocial-c77b8.cloudfunctions.net/api/scream', postContent)
     .then(res => {
         dispatch({ 
             type: ADD_POST,
@@ -33,7 +33,7 @@ export const addPost = (postContent) => (dispatch) => {
 }
 
 export const deletePost = (screamId) => (dispatch) => {
-    axios.delete(`/scream/${screamId}`)
+    axios.delete(`https://us-central1-mysocial-c77b8.cloudfunctions.net/api/scream/${screamId}`)
     .then(() => {
         dispatch({
             type: DELETE_POST,

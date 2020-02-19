@@ -4,7 +4,7 @@ import axios from 'axios'
 export const loginUser = (loginCredentials) => (dispatch) => {
     dispatch({ type: LOADING_UI })
 
-    axios.post('./login', loginCredentials)
+    axios.post('https://us-central1-mysocial-c77b8.cloudfunctions.net/api/login', loginCredentials)
     .then(res => {
         setAuthorizationHeader(res.data.token)
         dispatch(getUserData())
@@ -21,7 +21,7 @@ export const loginUser = (loginCredentials) => (dispatch) => {
 export const signupUser  = (newUserLoginCredentials) => (dispatch) => {
     dispatch({ type: LOADING_UI })
 
-    axios.post('./signup', newUserLoginCredentials)
+    axios.post('https://us-central1-mysocial-c77b8.cloudfunctions.net/api/signup', newUserLoginCredentials)
     .then(res => {
         setAuthorizationHeader(res.data.token)
         dispatch(getUserData())
@@ -37,7 +37,7 @@ export const signupUser  = (newUserLoginCredentials) => (dispatch) => {
 
 export const uploadImage = (formData) => (dispatch) => {
     dispatch({ type: LOADING_USER });
-    axios.post('/user/image', formData)
+    axios.post('https://us-central1-mysocial-c77b8.cloudfunctions.net/api/user/image', formData)
     .then(res => {
         dispatch(getUserData())
     })
@@ -46,7 +46,7 @@ export const uploadImage = (formData) => (dispatch) => {
 
 export const editUserDetails = (userDetails) => (dispatch) => {
     dispatch({ type: LOADING_USER })
-    axios.post('/user', userDetails)
+    axios.post('https://us-central1-mysocial-c77b8.cloudfunctions.net/api/user', userDetails)
     .then(() => {
         dispatch(getUserData())
     })
@@ -69,7 +69,7 @@ const setAuthorizationHeader = (token) => {
 
 export const getUserData = () => (dispatch) => {
     dispatch({ type: LOADING_USER })
-    axios.get('/user')
+    axios.get('https://us-central1-mysocial-c77b8.cloudfunctions.net/api/user')
     .then(res => {
         dispatch({
             type: SET_USER,
