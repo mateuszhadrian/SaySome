@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Caveat&display=swap');
 
-html {
-  height: 100%;
-}
 
+#root{
+  min-height: 0;
+}
 body {
   font-family: 'Caveat', cursive;
   background: #0E1C36;
+  min-width: 100%;
 }
 
 hr {
@@ -25,7 +26,7 @@ input {
 
 .navbar {
   position: fixed;
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: center;
   margin: 0;
@@ -54,6 +55,10 @@ input {
 
         &:hover {
           transform: scale(1.01);
+        }
+
+        @media(max-width: 768px){
+          font-size: 30px;
         }
     }
 
@@ -230,22 +235,27 @@ input {
 
 .main{
     &__container {
+      width: 100%;
       padding-top: 120px;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
       animation: appear .6s ease;
     }
 
     &__post {
+      width: 100%;
       display: flex;
       justify-content: space-between;
       border-radius: 2px;
       margin-bottom: 42px;
-      height: 180px;
+      min-height: 200px;
       width: 93vw;
       background: #F7FFF7;
       box-shadow: 10px 10px 14px 1px rgba(00,00,00,0.2);
+      @media(max-width: 768px){
+        width: 100vw;
+      }
     }
 }
 
@@ -268,6 +278,16 @@ input {
       flex-direction: column;
       justify-content: space-between;
       margin: 0 0 0 62px;
+      @media (max-width: 768px){
+        display: block;
+        margin-left: 8px;
+      }
+    }
+
+    &__photo-wrapper {
+      @media (max-width: 768px) {
+        
+      }
     }
 
     &__photo-content {
@@ -294,6 +314,10 @@ input {
       position: relative;
       right: 32px;
       bottom: 2px;
+      @media (max-width: 768px){
+        transform: scale(0.8);
+        right: 20px;
+      }
     }
 
     &__when {

@@ -18,8 +18,8 @@ class Post extends Component {
         const profilePhoto = {
             backgroundImage: `url(${userImage})`,
             height: '100%',
-            width: '220px',
-            minWidth: '220px',
+            maxWidth: '100vw',
+            minWidth: '120px',
             backgroundSize: 'cover',
             backgroundPosition: 'center'
         }
@@ -29,7 +29,9 @@ class Post extends Component {
         return (
             <div className='main__post'>
                 <div className="post__photo-content">
-                <div style={profilePhoto}></div>
+                <div className="post__photo-wrapper">
+                    <div style={profilePhoto}></div>
+                </div>
                     <div className='post__content'>
                         <div className='post__header'>
                             <p className='post__handle'>{userHandle}</p>
