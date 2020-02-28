@@ -19,7 +19,7 @@ class Post extends Component {
             backgroundImage: `url(${userImage})`,
             height: '100%',
             maxWidth: '100vw',
-            minWidth: '120px',
+            minWidth: '180px',
             backgroundSize: 'cover',
             backgroundPosition: 'center'
         }
@@ -34,8 +34,9 @@ class Post extends Component {
                 </div>
                     <div className='post__content'>
                         <div className='post__header'>
-                            <p className='post__handle'>{userHandle}</p>
+                            <h1 className='post__handle'>{userHandle}</h1>
                             <span className='post__when'>{dayjs(createdAt).fromNow()}</span>  
+                            <hr className='post__hr'/>
                         </div>
                         <p className='post__text'>{body}</p> 
                         <h3 className='post__likes'>{likeCount} osób lubi to</h3>
