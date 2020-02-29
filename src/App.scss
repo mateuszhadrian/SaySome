@@ -101,6 +101,7 @@ input {
     }
 
     &__add-post {
+      cursor: pointer;
       position: relative;
       bottom: 4px;
       right: 36px;
@@ -328,6 +329,7 @@ input {
 
     &__like-button {
       font-size: 24px;
+      cursor: pointer;
       color: rgb(124, 20, 20);
       &:visited {
         color: rgb(124, 20, 20);
