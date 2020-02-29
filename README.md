@@ -2,6 +2,10 @@
 ## designed and created by Mateusz Hadrian using React
 ## backend: firebase: database, storage, authentication (test mode)
 
+# - React
+# - React Router (BrowserRouter changed to HashRouter to be able to deploy to github pages without errors)
+# - Redux
+
 ## https://mateuszhadrian.github.io/SaySome
 
 ## ______________________________________________________
