@@ -66,7 +66,7 @@ class Post extends Component {
                             <hr className='post__hr'/>
                         </div>
                         <p className='post__text'>{body}</p> 
-                        <h3 className='post__likes'>{likeButton} {likeCount} podziela zdanie</h3>
+                        <h3 className='post__likes'>{likeButton} {likeCount}</h3>
                     </div>   
                 </div>              
                         {deleteButton}
