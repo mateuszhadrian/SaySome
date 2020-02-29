@@ -1,4 +1,4 @@
-import { SET_POSTS, LOADING_DATA, ADD_POST, DELETE_POST, HIDE_BUTTON, SHOW_BUTTON } from '../types';
+import { SET_POSTS, LOADING_DATA, ADD_POST, DELETE_POST, HIDE_BUTTON, SHOW_BUTTON, LIKE_POST, UNLIKE_POST } from '../types';
 
 const initialState = {
     posts: [],
@@ -44,6 +44,13 @@ export default function(state = initialState, action){
             return {
                 ...state,
                 button: true
+            }
+        case LIKE_POST:
+        case UNLIKE_POST:
+            let index = state.posts.findIndex(post => post.screamId === action.payload.screamId)
+            state.posts[index] = action.payload
+            return {
+                ...state
             }
         default:
             return state;

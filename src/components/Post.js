@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import { connect } from 'react-redux'
+import { likePost, unlikePost } from '../redux/actions/dataActions'
 
 
 class Post extends Component {
@@ -10,11 +12,24 @@ class Post extends Component {
         event.stopPropagation();
         this.props.showQuestion(this.props.screamId);
     }
+
+    likedPost = (screamId) => {
+        return this.props.user.likes && this.props.user.likes.find(like => like.screamId === screamId);
+    }
+
+    likePost = () => {
+        this.props.likePost(this.props.post.screamId)
+    }
+
+    unlikePost = () => {
+        this.props.unlikePost(this.props.post.screamId)
+    }
+
     
 
     render() {
         dayjs.extend(relativeTime)
-        const { user: { authenticated, credentials: { handle }}, post: { userHandle, createdAt, body, userImage, likeCount } } = this.props
+        const { user: { authenticated, credentials: { handle }}, post: { screamId, userHandle, createdAt, body, userImage, likeCount } } = this.props
         const profilePhoto = {
             backgroundImage: `url(${userImage})`,
             height: '100%',
@@ -24,8 +39,20 @@ class Post extends Component {
             backgroundPosition: 'center'
         }
 
+
         const deleteButton = handle === userHandle && authenticated ? (<button onClick={this.openDeletionWindow} className="post__delete-button"><i className="fas fa-trash"></i></button>) : ( null )
 
+        const likeButton = !authenticated ? (
+            <Link to="/logowanie">
+                <i className="post__like-button far fa-heart"></i>
+            </Link>
+        ) : (
+            this.likedPost(screamId) ? (
+                <i onClick={this.unlikePost} className="post__like-button fas fa-heart"></i>
+            ) : (
+                <i onClick={this.likePost} className="post__like-button far fa-heart"></i>
+            )
+        )
         return (
             <div className='main__post'>
                 <div className="post__photo-content">
@@ -39,7 +66,7 @@ class Post extends Component {
                             <hr className='post__hr'/>
                         </div>
                         <p className='post__text'>{body}</p> 
-                        <h3 className='post__likes'>{likeCount} osób lubi to</h3>
+                        <h3 className='post__likes'>{likeButton} {likeCount} podziela zdanie</h3>
                     </div>   
                 </div>              
                         {deleteButton}
@@ -52,6 +79,9 @@ const mapStateToProps = (state) => ({
     user: state.user
 })
 
-const mapActionsToProps = {}
+const mapActionsToProps = {
+    likePost,
+    unlikePost
+}
 
 export default connect(mapStateToProps, mapActionsToProps)(Post)

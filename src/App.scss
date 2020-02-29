@@ -326,6 +326,14 @@ input {
         }
     }
 
+    &__like-button {
+      font-size: 24px;
+      color: rgb(124, 20, 20);
+      &:visited {
+        color: rgb(124, 20, 20);
+      }
+    }
+
     &__header {
       position: relative;
       right: 32px;
