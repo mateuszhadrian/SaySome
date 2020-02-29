@@ -9,4 +9,6 @@
 
 ## Email: test@user.com
 ## Hasło: test123
+
+## new account creation recommended (no e-mail confirmation needed)
 ## ______________________________________________________
